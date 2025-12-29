@@ -15,13 +15,23 @@ addButton.addEventListener("click", () => {
     contentDo.className = "content-do"
 
     const squareIcon = document.createElement("i")
-    squareIcon.className = "bi bi-square remove"
+    squareIcon.className = "bi bi-square"
+
+    squareIcon.addEventListener("click", () => {
+    squareIcon.classList.toggle("bi-square")
+    squareIcon.classList.toggle("bi-check-square")
+})
+
 
     const p = document.createElement("p")
     p.textContent = valueInput
 
     const trashIcon = document.createElement("i")
     trashIcon.className = "bi bi-trash3"
+
+    trashIcon.addEventListener("click", () => {
+    boxDo.remove()
+})
 
     contentDo.appendChild(squareIcon)
     contentDo.appendChild(p)
@@ -31,8 +41,4 @@ addButton.addEventListener("click", () => {
     parentDo.appendChild(boxDo)
 
     inputBox.value = ""
-})
-removeButton.addEventListener("click",(e)=>{
-    boxDo = document.querySelector(".box-do")
-    boxDo.remove()
 })
